@@ -1,0 +1,31 @@
+<script>
+     //Solicitar ao usuário que insira uma data
+    const dataEntradaStr = prompt("Por favor, insira uma data no formato:");
+
+    // Converter a data de entrada em um objeto Date
+    const dataEntrada = new Date(dataEntradaStr);
+
+    // Definir a data de época do Excel (1 de janeiro de 1900)
+    const epoch = new Date(1900, 0, 1); // Janeiro é 0 em JavaScript
+
+    // Calcular a diferença em milissegundos
+    const difMilisegundos = dataEntrada - epoch;
+    
+    
+    // Converter a diferença de milissegundos para dias
+    const dias = difMilisegundos / (1000 * 60 * 60 * 24);
+
+    // O Excel considera 1900 como ano bissexto (erro histórico), então adicionar 1 se a data for após 28/02/1900
+    let numeroDeSerie;
+    if (dataEntrada > new Date(1900, 1, 28)) {
+        numeroDeSerie = dias + 1;
+    } else {
+        numeroDeSerie = dias;
+    }
+    // Exibir o número de série
+    console.log(numeroDeSerie);
+    alert("O número de série correspondente à data inserida é: " + numeroDeSerie.toFixed(0));
+    cosole.log(difMilisegundos);
+    alert(difMilisegundos);
+
+</script>

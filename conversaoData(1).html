@@ -1,0 +1,38 @@
+<script>
+    var dia = parseInt(prompt("Digite o dia do seu aniversario:"));
+    var mes = parseInt(prompt("Digite o mes do seu aniversario:"));
+    var ano = parseInt(prompt("Digite o ano do seu aniversario:"));
+    var dia_inicial = 1;
+    var mes_inicial = 1;
+    var ano_inicial = 1900;
+    var dias_totais = 0;
+
+    // Calculando dias pelos anos completos
+    for (var a = ano_inicial; a < ano; a++) {
+        if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)) {
+            dias_totais += 366;
+        } else {
+            dias_totais += 365;
+        }
+    }
+
+    // Calculando dias pelos meses completos no ano atual
+    for (var m = 1; m < mes; m++) {
+        if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+            dias_totais += 31;
+        } else if (m == 4 || m == 6 || m == 9 || m == 11) {
+            dias_totais += 30;
+        } else if (m == 2) {
+            if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)) {
+                dias_totais += 29;
+            } else {
+                dias_totais += 28;
+            }
+        }
+    }
+
+    // Adicionando os dias do mês atual
+    dias_totais += dia - 1;
+
+    alert("Número de dias desde 1 de janeiro de 1900: " + dias_totais);
+</script>
