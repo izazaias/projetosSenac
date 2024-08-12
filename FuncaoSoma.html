@@ -1,0 +1,37 @@
+<script>
+    let op = Number(prompt("Digite uma opção: 1:SOMA 2:SUBTRAÇÃO 3:MULTIPLICAÇÃO 4:DIVISÃO"));
+
+    function calc(a, b, op) {
+
+        switch (op) {
+            case 1:
+                return a + b;
+                break;
+            case 2:
+                return a - b;
+                break;
+            case 3:
+                return a * b;
+                break;
+            case 4:
+                if(b == 0 || a == 0){
+                    alert("Não dá para dividir por zero");
+                }else{
+                    return a / b;
+                }
+                break;
+            default:
+                return exit();
+                break;
+
+        }
+    }
+
+    a = Number(prompt("Digite um numero:"));
+    b = Number(prompt("Digite um numero:"));
+
+    alert("O resultado da opção é: " + calc(a,b,op).toFixed(2) + ".");
+
+
+
+</script>

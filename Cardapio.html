@@ -1,0 +1,22 @@
+<script>
+    const cardapio = {
+        100: 1.70,
+        101: 2.30,
+        102: 2.60,
+        103: 2.40,
+        104: 2.50,
+        105: 1.00
+    }
+
+    let pedido;
+    let fecharConta = 0;
+
+
+    while ((pedido = Number(prompt("Digite o pedido do cardapio:"))) != 0 || pedido == undefined) {
+        let itemDoCardapio = cardapio[pedido];
+
+        fecharConta += itemDoCardapio;
+    }
+
+    alert("A conta deu R$ " + fecharConta + ". Qual a forma de pagamento?");
+</script>
